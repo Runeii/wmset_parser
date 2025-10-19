@@ -22,9 +22,24 @@ def process_file(filepath: str) -> None:
 
     ## Remember, zero indexed! Section 13 in Wiki is section 12 here.
     dialog_text = Section13(file_header.sections[13])
+    print("Dialog Texts:")
+    for text in dialog_text.dialog:
+        print(f" - {text}")
+
+
     models = Section15(file_header.sections[15])
+
     location_names = Section31(file_header.sections[31])
+    print("Location Names:")
+    for name in location_names.location_names:
+        print(f" - {name}")
+
     draw_points = Section34(file_header.sections[34])
+    print("Draw Points:")
+    for point in draw_points.draw_points:
+        print(f" - {point}")
+        
+
     object_textures = Section41(file_header.sections[41])
     
     for i, model in enumerate(models.models):
@@ -36,6 +51,6 @@ def process_file(filepath: str) -> None:
 
 
 if __name__ == "__main__":
-  test_file_path = "wmsetus.obj"
+  test_file_path = "../wmsetus.obj"
   os.system('cls' if os.name == 'nt' else 'clear')
   process_file(test_file_path)

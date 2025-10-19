@@ -10,7 +10,6 @@ class Section41:
 
   def __init__(self, stream: BytesIO):
     self.offsets = self.parse_text_offsets(stream)
-    print(f"Parsed {len(self.offsets)} offsets: {self.offsets}")
     self.textures = self.parse_textures(stream, self.offsets)
 
   

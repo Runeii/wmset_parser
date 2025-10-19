@@ -92,7 +92,6 @@ class Model:
     vertices: List[Vertex]
     
     def __init__(self, stream: BytesIO):
-        print(stream.tell(), stream.getbuffer().nbytes)
         self.triangle_count = BinaryReader.read_uint16(stream)
         self.quad_count = BinaryReader.read_uint16(stream)
         self.texture_page = BinaryReader.read_uint16(stream)

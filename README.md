@@ -12,3 +12,5 @@ Currently parses:
 
 
 Exports textures as pngs and meshes as obj/mtl/png to ./output
+
+It looks for a `wmsetus.obj` file in the root, currently

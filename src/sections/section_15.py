@@ -30,7 +30,6 @@ class Section15:
 
   def parse_models(self, stream: BytesIO, offsets: List[int]) -> List[Model]:
     models: List[Model] = []
-    print(offsets)
     for i, offset in enumerate(offsets):
       start_offset = offset
       end_offset = offsets[i + 1] if i + 1 < len(offsets) else len(stream.getbuffer())
