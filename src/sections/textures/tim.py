@@ -3,6 +3,7 @@ from pathlib import Path
 from PIL import Image  # Make sure Pillow is installed
 from typing import Optional, List, Tuple
 from io import BytesIO
+import os
 from utils.binary_reader import BinaryReader
 
 @dataclass
@@ -224,6 +225,7 @@ class TIM:
                     pixels[x, y] = (int(r*255), int(g*255), int(b*255), a)
                     idx += 2
 
+        os.makedirs(os.path.dirname(path), exist_ok=True)
         img.save(path)
         print(f"Saved TIM as PNG: {path}")
         

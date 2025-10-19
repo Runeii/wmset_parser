@@ -28,9 +28,10 @@ def process_file(filepath: str) -> None:
     object_textures = Section41(file_header.sections[41])
     
     for i, model in enumerate(models.models):
-      print(f"Exporting model with texture page {model.texture_page}, object textures has {len(object_textures.textures)} textures")
       texture = object_textures.textures[i]
-      Section15.export_model_to_obj(model, f"model_{i}.obj", texture)
+      Section15.export_model_to_obj(model, f"../output/models/model_{i}.obj", texture)
+      texture.save_png(f"../output/textures/texture_{i}.png")
+      print(f"Exported model_{i}.obj with texture_{i}.png")
 
 
 

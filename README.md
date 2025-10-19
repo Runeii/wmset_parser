@@ -1,1 +1,14 @@
-A Blender plugin for importing the worldmap models from Final Fantasy VIII.
+### wmset.obj parser
+
+
+WIP, feel free to contribute sections.
+
+Currently parses:
+* Dialog
+* Draw points
+* Location names
+* Object textures
+* Object meshes
+
+
+Exports textures as pngs and meshes as obj/mtl/png to ./output

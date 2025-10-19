@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-import os
 from typing import List
 from sections.models.parse import Model
 from sections.textures.tim import TIM
@@ -74,6 +73,7 @@ class Section15:
       height = tim.header.img_h
 
       # --- Write OBJ ---
+      os.makedirs(os.path.dirname(obj_filename), exist_ok=True)
       with open(obj_filename, "w") as obj_file:
           obj_file.write(f"# Exported OBJ: {os.path.basename(obj_filename)}\n")
           obj_file.write(f"mtllib {os.path.basename(mtl_filename)}\n")
