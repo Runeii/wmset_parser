@@ -1,8 +1,12 @@
 from file_header import FileHeader
+from sections.section_7 import Section7
+from sections.section_9 import Section9
+from sections.section_11 import Section11
 from sections.section_13 import Section13
 from sections.section_15 import Section15
 from sections.section_31 import Section31
 from sections.section_34 import Section34
+from sections.section_36 import Section36
 from sections.section_41 import Section41
 import os
 
@@ -21,11 +25,22 @@ def process_file(filepath: str) -> None:
         print(f"Offset {i}: {offset}")
 
     ## Remember, zero indexed! Section 13 in Wiki is section 12 here.
+    scripts = Section7(file_header.sections[7])
+    print("Scripts:")
+    print(f" - {scripts.scripts[0]}")
+
+    scripts = Section9(file_header.sections[9])
+    print("Scripts:")
+    print(f" - {scripts.scripts[0]}")
+
+    scripts = Section11(file_header.sections[11])
+    print("Scripts:")
+    print(f" - {scripts.scripts[0]}")
+
     dialog_text = Section13(file_header.sections[13])
     print("Dialog Texts:")
     for text in dialog_text.dialog:
         print(f" - {text}")
-
 
     models = Section15(file_header.sections[15])
 
@@ -48,7 +63,9 @@ def process_file(filepath: str) -> None:
       texture.save_png(f"../output/textures/texture_{i}.png")
       print(f"Exported model_{i}.obj with texture_{i}.png")
 
-
+    scripts = Section36(file_header.sections[36])
+    print("Scripts:")
+    print(f" - {scripts.scripts[0]}")
 
 if __name__ == "__main__":
   test_file_path = "../wmsetus.obj"
