@@ -1,0 +1,67 @@
+from typing import TypedDict
+
+class Opcode(TypedDict):
+    opcode: str
+    hex: str
+    description: str
+
+OPCODES: dict[int, Opcode] = {
+  # unknown opcodes
+  -248: {"opcode": "unknown", "hex": "0xFF08", "description": "Unknown opcode"},
+  -237: {"opcode": "unknown", "hex": "0xFF08", "description": "Unknown opcode"},
+  -235: {"opcode": "unknown", "hex": "0xFF08", "description": "Unknown opcode"},
+  -225: {"opcode": "unknown", "hex": "0xFF08", "description": "Unknown opcode"},
+  -221: {"opcode": "unknown", "hex": "0xFF08", "description": "Unknown opcode"},
+  -220: {"opcode": "unknown", "hex": "0xFF08", "description": "Unknown opcode"},
+  -218: {"opcode": "unknown", "hex": "0xFF08", "description": "Unknown opcode"},
+  -216: {"opcode": "unknown", "hex": "0xFF08", "description": "Unknown opcode"},
+  -213: {"opcode": "unknown", "hex": "0xFF08", "description": "Unknown opcode"},
+  -210: {"opcode": "unknown", "hex": "0xFF08", "description": "Unknown opcode"},
+  -202: {"opcode": "unknown", "hex": "0xFF08", "description": "Unknown opcode"},
+  -201: {"opcode": "unknown", "hex": "0xFF08", "description": "Unknown opcode"},
+
+  -255: {"opcode": "IF", "hex": "0xFF01", "description": "IF statement - Marks the start of a conditional check"},
+  -254: {"opcode": "LTEQ", "hex": "0xFF02", "description": "Check if value <= word_2036BDE"},
+  -253: {"opcode": "GREATER", "hex": "0xFF03", "description": "Check if value > word_2036BDE"},
+  -252: {"opcode": "EXEC", "hex": "0xFF04", "description": "EXECUTE/ACTION - Marks an action to execute"},
+  -251: {"opcode": "ENDIF", "hex": "0xFF05", "description": "END IF/ELSE BLOCK - Marks the end of an IF or ELSE structure"},
+  -250: {"opcode": "REGION", "hex": "0xFF06", "description": "Region number check"},
+  -249: {"opcode": "TILE", "hex": "0xFF07", "description": "Tile/sector position check"},
+  -247: {"opcode": "VEHICLE", "hex": "0xFF09", "description": "Vehicle type check"},
+  -246: {"opcode": "IFBLOCK", "hex": "0xFF0A", "description": "BEGIN IF BLOCK - Explicitly starts an IF structure"},
+  -245: {"opcode": "ELSE", "hex": "0xFF0B", "description": "ELSE clause - Separates IF and ELSE branches"},
+  -244: {"opcode": "NESTEDIF", "hex": "0xFF0C", "description": "NESTED IF IN ELSE - Starts an IF block within an ELSE branch"},
+  -243: {"opcode": "NESTEDELSE", "hex": "0xFF0D", "description": "NESTED ELSE - Starts an ELSE block within another ELSE branch"},
+  -242: {"opcode": "GOTO", "hex": "0xFF0E", "description": "GOTO/JUMP - Jumps to the offset specified in the next value"},
+  -241: {"opcode": "XGT", "hex": "0xFF0F", "description": "X coordinate > value check"},
+  -240: {"opcode": "YGT", "hex": "0xFF10", "description": "Y coordinate > value check"},
+  -239: {"opcode": "XLT", "hex": "0xFF11", "description": "X coordinate < value check"},
+  -238: {"opcode": "YLT", "hex": "0xFF12", "description": "Y coordinate < value check"},
+  -234: {"opcode": "TERMINATE", "hex": "0xFF16", "description": "SCRIPT TERMINATOR - Ends current script"},
+  -233: {"opcode": "ENTITY", "hex": "0xFF17", "description": "Entity distance/position validation"},
+  -232: {"opcode": "VEHSTATE1", "hex": "0xFF18", "description": "Vehicle state check (type 50 or 48)"},
+  -231: {"opcode": "VEHSTATE2", "hex": "0xFF19", "description": "Vehicle state check (type 50 or 48, different values)"},
+  -230: {"opcode": "CHARLOC", "hex": "0xFF1A", "description": "Character location check"},
+  -229: {"opcode": "CHARLOCEX", "hex": "0xFF1B", "description": "Character location check with party member exclusions"},
+  -228: {"opcode": "CHARLOC2", "hex": "0xFF1C", "description": "Secondary character location check"},
+  -227: {"opcode": "CHARDIST", "hex": "0xFF1D", "description": "Secondary character location with distance calculation"},
+  -226: {"opcode": "FAIL", "hex": "0xFF1E", "description": "Always fails (returns -1)"},
+  -224: {"opcode": "BUTTON", "hex": "0xFF20", "description": "Button input/controller state check"},
+  -223: {"opcode": "BATTLE", "hex": "0xFF21", "description": "Battle state flag check"},
+  -222: {"opcode": "LOCREG", "hex": "0xFF22", "description": "Location drawing register comparison"},
+  -219: {"opcode": "PARTYSTATE", "hex": "0xFF25", "description": "Party state byte comparison"},
+  -217: {"opcode": "BITFLAG", "hex": "0xFF27", "description": "Bit flag check in game state"},
+  -215: {"opcode": "STATELOOKUP", "hex": "0xFF29", "description": "State variable lookup"},
+  -214: {"opcode": "STATECMP", "hex": "0xFF2A", "description": "State variable comparison"},
+  -212: {"opcode": "STATCMP", "hex": "0xFF2C", "description": "Character stat comparison"},
+  -211: {"opcode": "STATBYTE", "hex": "0xFF2D", "description": "Character stat byte comparison"},
+  -209: {"opcode": "RANDOM", "hex": "0xFF2F", "description": "Random number check"},
+  -208: {"opcode": "STATGT", "hex": "0xFF30", "description": "Character stat > comparison"},
+  -207: {"opcode": "STATLT", "hex": "0xFF31", "description": "Character stat < comparison"},
+  -206: {"opcode": "LOCFLAG", "hex": "0xFF32", "description": "Location flag bit check"},
+  -205: {"opcode": "LOCBYTE", "hex": "0xFF33", "description": "Location byte comparison"},
+  -204: {"opcode": "SCENEID", "hex": "0xFF34", "description": "Combat scene ID check"},
+  -203: {"opcode": "BYTECHECK", "hex": "0xFF35", "description": "Check if byte_1CFF6E7 == 4"},
+  -200: {"opcode": "MOVEMENT", "hex": "0xFF38", "description": "Movement state check"},
+  -199: {"opcode": "BATTLEVAR", "hex": "0xFF39", "description": "Battle variable check"}
+}

@@ -27,15 +27,14 @@ def process_file(filepath: str) -> None:
     ## Remember, zero indexed! Section 13 in Wiki is section 12 here.
     scripts = Section7(file_header.sections[7])
     print("Scripts:")
-    print(f" - {scripts.scripts[0]}")
-
+    print(f" - {scripts.entities[0].scripts[0]}")
     scripts = Section9(file_header.sections[9])
     print("Scripts:")
-    print(f" - {scripts.scripts[0]}")
+    print(f" - {scripts.entities[0].scripts[0]}")
 
     scripts = Section11(file_header.sections[11])
     print("Scripts:")
-    print(f" - {scripts.scripts[0]}")
+    print(f" - {scripts.entities[0].scripts[0]}")
 
     dialog_text = Section13(file_header.sections[13])
     print("Dialog Texts:")
@@ -65,7 +64,7 @@ def process_file(filepath: str) -> None:
 
     scripts = Section36(file_header.sections[36])
     print("Scripts:")
-    print(f" - {scripts.scripts[0]}")
+    print(f" - {scripts.entities[0].scripts[0]}")
 
 if __name__ == "__main__":
   test_file_path = "../wmsetus.obj"
