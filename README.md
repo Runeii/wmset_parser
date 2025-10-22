@@ -9,6 +9,7 @@ Currently parses:
 * Location names
 * Object textures
 * Object meshes
+* Scripts/world map conditions
 
 
 Exports textures as pngs and meshes as obj/mtl/png to ./output
